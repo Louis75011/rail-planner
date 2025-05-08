@@ -1,0 +1,22 @@
+<h2>Liste des trains</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numéro</th>
+      <th>Destination</th>
+      <th>Départ</th>
+      <th>Statut</th>
+      <th>Wagons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let train of trains">
+      <td>{{ train.number }}</td>
+      <td>{{ train.destination }}</td>
+      <td>{{ train.departureTime }}</td>
+      <td>{{ train.status }}</td>
+      <td>{{ train.wagons }}</td>
+    </tr>
+  </tbody>
+</table>
