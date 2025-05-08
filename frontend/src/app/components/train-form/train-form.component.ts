@@ -21,8 +21,13 @@ export class TrainFormComponent {
   constructor(private trainService: TrainService) { }
 
   submitForm(): void {
-    console.log('📝 Formulaire soumis :', this.train); // 👈 Debug
-    
+    if (!this.train.number || !this.train.destination || !this.train.departureTime) {
+      alert('Veuillez remplir tous les champs obligatoires.');
+      return;
+    }
+  
+    console.log('📝 Formulaire soumis :', this.train);
+  
     this.trainService.addTrain(this.train).subscribe({
       next: () => {
         alert('✅ Train ajouté avec succès !');
