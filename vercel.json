@@ -2,6 +2,9 @@
     "rewrites": [
       { "source": "/(.*)", "destination": "/index.html" }
     ],
-    "cleanUrls": true
+    "cleanUrls": true,
+    "buildCommand": "cd frontend && npm install && npx ng build --configuration=production",
+    "outputDirectory": "frontend/dist/rail-planner",
+    "framework": "angular"
   }
   

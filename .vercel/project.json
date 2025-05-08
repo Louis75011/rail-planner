@@ -1,9 +1,11 @@
 {
-    "projectId": "...",
-    "orgId": "...",
+    "projectId": "rail-id",
+    "orgId": "roller-id",
     "settings": {
       "framework": "angular",
-      "rootDirectory": "frontend"
+      "rootDirectory": "frontend",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist/rail-planner"
     }
   }
   
