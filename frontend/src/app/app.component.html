@@ -12,11 +12,15 @@
 <main class="main-container">
   <section>
     <app-train-form (trainAdded)="onTrainAdded()"></app-train-form>
-    <img src="assets/ter_campagnes.jpg" alt="image ter ghibli" width="400">
+    <div>
+      <img src="assets/ter_campagnes.jpg" alt="image ter ghibli" width="400">
+    </div>
   </section>
   <section>
     <app-train-list [refreshTrigger]="refreshCounter"></app-train-list>
-    <img src="assets/tgv_villes.jpg" alt="image tgv ghibli" width="400">
+    <div>
+      <img src="assets/tgv_villes.jpg" alt="image tgv ghibli" width="400">
+    </div>
   </section>
 </main>
 
