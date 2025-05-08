@@ -6,10 +6,10 @@ const trainSchema = new mongoose.Schema({
   departureTime: { type: String, required: true },
   status: {
     type: String,
-    enum: ['à quai', 'en retard', 'en circulation'],
+    enum: ['à quai', 'en circulation', 'en retard'],
     default: 'à quai'
   },
-  wagons: { type: Number, default: 8 }
+  wagons: { type: Number, required: true, min: 1 }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Train', trainSchema);

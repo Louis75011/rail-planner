@@ -5,6 +5,7 @@ const Train = require('../models/Train');
 // GET all trains
 router.get('/', async (req, res) => {
   try {
+    console.log('📩 Corps reçu :', req.body);
     const trains = await Train.find().sort({ departureTime: 1 });
     res.json(trains);
   } catch (err) {
@@ -14,13 +15,19 @@ router.get('/', async (req, res) => {
 
 // POST a new train
 router.post('/', async (req, res) => {
-  try {
-    const train = new Train(req.body);
-    const savedTrain = await train.save();
-    res.status(201).json(savedTrain);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-});
+    console.log('📩 Reçu du front :', req.body); // ⬅️ LOG utile
+  
+    try {
+      const train = new Train(req.body);
+  
+      const savedTrain = await train.save();
+      console.log('✅ Train enregistré :', savedTrain); // ⬅️ Confirmation
+  
+      res.status(201).json(savedTrain);
+    } catch (err) {
+      console.error('❌ Erreur backend :', err.message); // ⬅️ Log erreur
+      res.status(400).json({ error: err.message });
+    }
+  });
 
 module.exports = router;
