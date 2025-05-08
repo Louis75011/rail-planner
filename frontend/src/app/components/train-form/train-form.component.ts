@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { TrainService, Train } from '../../services/train.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TrainService, Train } from '../../services/train.service';
 
 @Component({
   selector: 'app-train-form',
@@ -18,16 +18,19 @@ export class TrainFormComponent {
     wagons: 8
   };
 
-  constructor(private trainService: TrainService) { }
+  // ✅ Ajout ici pour déclencher le rafraîchissement côté parent
+  @Output() trainAdded = new EventEmitter<void>();
+
+  constructor(private trainService: TrainService) {}
 
   submitForm(): void {
     if (!this.train.number || !this.train.destination || !this.train.departureTime) {
       alert('Veuillez remplir tous les champs obligatoires.');
       return;
     }
-  
+
     console.log('📝 Formulaire soumis :', this.train);
-  
+
     this.trainService.addTrain(this.train).subscribe({
       next: () => {
         alert('✅ Train ajouté avec succès !');
@@ -38,6 +41,7 @@ export class TrainFormComponent {
           status: 'à quai',
           wagons: 8
         };
+        this.trainAdded.emit(); // ✅ Événement déclenché
       },
       error: (err) => alert('❌ Erreur lors de l’ajout : ' + err.message)
     });

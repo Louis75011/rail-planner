@@ -16,4 +16,9 @@ import { TrainListComponent } from './components/train-list/train-list.component
 })
 export class AppComponent {
   title = 'rail-planner';
+  refreshCounter = 0;
+
+  onTrainAdded(): void {
+    this.refreshCounter++; // ⚡ Trigge le rechargement de la liste
+  }
 }

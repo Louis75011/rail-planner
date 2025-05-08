@@ -11,10 +11,10 @@
 
 <main class="main-container">
   <section>
-    <app-train-form></app-train-form>
+    <app-train-form (trainAdded)="onTrainAdded()"></app-train-form>
   </section>
   <section>
-    <app-train-list ngSkipHydration></app-train-list>
+    <app-train-list [refreshTrigger]="refreshCounter"></app-train-list>
   </section>
 </main>
 
