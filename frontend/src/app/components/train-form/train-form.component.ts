@@ -18,7 +18,7 @@ export class TrainFormComponent {
     wagons: 8
   };
 
-  constructor(private trainService: TrainService) {}
+  constructor(private trainService: TrainService) { }
 
   submitForm(): void {
     this.trainService.addTrain(this.train).subscribe({
