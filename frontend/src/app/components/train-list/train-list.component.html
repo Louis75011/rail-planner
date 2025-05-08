@@ -1,6 +1,9 @@
 <h2>Liste des trains</h2>
 
-<table>
+<p *ngIf="trains.length === 0">🚨 Aucun train trouvé !</p>
+<p *ngIf="trains.length > 0">✅ {{ trains.length }} train(s) chargé(s)</p>
+
+<table *ngIf="trains.length > 0">
   <thead>
     <tr>
       <th>Numéro</th>

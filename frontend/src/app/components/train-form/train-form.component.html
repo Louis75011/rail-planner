@@ -1,34 +1,34 @@
 <h2>Ajouter un train</h2>
 
 <form (ngSubmit)="submitForm()" #trainForm="ngForm">
-  <label>
-    Numéro :
-    <input type="text" name="number" [(ngModel)]="train.number" required>
-  </label>
+    <label>
+        Numéro :
+        <input type="text" [(ngModel)]="train.number" name="number" required />
+    </label>
 
-  <label>
-    Destination :
-    <input type="text" name="destination" [(ngModel)]="train.destination" required>
-  </label>
+    <label>
+        Destination :
+        <input type="text" [(ngModel)]="train.destination" name="destination" required />
+    </label>
 
-  <label>
-    Heure de départ :
-    <input type="time" name="departureTime" [(ngModel)]="train.departureTime" required>
-  </label>
+    <label>
+        Heure de départ :
+        <input type="time" [(ngModel)]="train.departureTime" name="departureTime" required />
+    </label>
 
-  <label>
-    Statut :
-    <select name="status" [(ngModel)]="train.status">
-      <option value="à quai">À quai</option>
-      <option value="en circulation">En circulation</option>
-      <option value="en retard">En retard</option>
-    </select>
-  </label>
+    <label>
+        Statut :
+        <select [(ngModel)]="train.status" name="status" required>
+            <option>À quai</option>
+            <option>En circulation</option>
+            <option>En retard</option>
+        </select>
+    </label>
 
-  <label>
-    Wagons :
-    <input type="number" name="wagons" [(ngModel)]="train.wagons" min="1" max="20">
-  </label>
+    <label>
+        Wagons :
+        <input type="number" [(ngModel)]="train.wagons" name="wagons" min="1" required />
+    </label>
 
-  <button type="submit">🚄 Ajouter</button>
+    <button type="submit">Ajouter</button>
 </form>

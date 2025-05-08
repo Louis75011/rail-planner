@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 export interface Train {
-  _id?: string;
   number: string;
   destination: string;
   departureTime: string;
-  status?: string;
-  wagons?: number;
+  status: string;
+  wagons: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class TrainService {
-  private apiUrl = 'http://localhost:3000/api/trains';
+  private readonly apiUrl = '/api/trains';
+
+  private refreshSubject = new Subject<void>();
+  refresh$ = this.refreshSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -24,6 +24,7 @@ export class TrainService {
   }
 
   addTrain(train: Train): Observable<Train> {
+    this.refreshSubject.next(); // forcer le reload
     return this.http.post<Train>(this.apiUrl, train);
   }
 }

@@ -21,6 +21,8 @@ export class TrainFormComponent {
   constructor(private trainService: TrainService) { }
 
   submitForm(): void {
+    console.log('📝 Formulaire soumis :', this.train); // 👈 Debug
+    
     this.trainService.addTrain(this.train).subscribe({
       next: () => {
         alert('✅ Train ajouté avec succès !');
