@@ -96,10 +96,8 @@ rail-planner/
 
 7. 🔗 Liens utiles
 
-📚 Documentation MongoDB : https://www.mongodb.com/docs/
-
+📚 MongoDB : https://www.mongodb.com/docs/ & https://cloud.mongodb.com/v2/681cbd7a896a4f56714dc06b#/security/database
 🎨 Site Angular : https://angular.dev
 
-👁️ GitHub : (ajouter votre lien)
-
+👁️ GitHub : https://github.com/Louis75011/rail-planner
 🚀 Démo Vercel : (ajouter votre lien)

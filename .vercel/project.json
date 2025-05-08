@@ -1,0 +1,9 @@
+{
+    "projectId": "...",
+    "orgId": "...",
+    "settings": {
+      "framework": "angular",
+      "rootDirectory": "frontend"
+    }
+  }
+  
